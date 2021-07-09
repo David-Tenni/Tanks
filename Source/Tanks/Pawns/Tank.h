@@ -37,8 +37,6 @@ private:
 
 	void Move();
 	void Rotate();
-
-
 public:
 	ATank();
 	virtual void Tick(float DeltaTime) override;
