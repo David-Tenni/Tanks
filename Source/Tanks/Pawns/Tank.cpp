@@ -13,6 +13,7 @@ void ATank::CalculateMoveInput(float Value)
 void ATank::CalculateRotateInput(float Value)
 {
     float RotateAmount = Value * TurnSpeed * GetWorld()->DeltaTimeSeconds;
+    FRotator Rotation = FRotator(0, RotateAmount, 0);
     RotationDirection = FQuat(Rotation);
 }
 
