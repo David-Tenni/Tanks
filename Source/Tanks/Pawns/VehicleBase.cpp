@@ -22,14 +22,20 @@ AVehicleBase::AVehicleBase()
 
 void AVehicleBase::RotateTurretFunction(FVector LookAtTarget)
 {
+	//turn towards actor
 }
 
 void AVehicleBase::Fire()
 {
+	//instantiate bullet at projectile spawn point
 }
 
 void AVehicleBase::HandleDestruction()
 {
+	//spawn particles, play sound, shake camera
+	//destroy self
+	//pawn turret spawn debris maybe
+	//set player to dead, kill functionality, make invicible, move to spawn point, and respawn if lives > 0
 }
 
 
