@@ -18,6 +18,8 @@ void ATurret::BeginPlay()
 void ATurret::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
+    if (!Player || ReturnDistanceToPlayer() > Range) { return; }
+    //RotateTurret(Player->GetActorLocation());
 }
 
 void ATurret::CheckFireCondition()

@@ -23,6 +23,9 @@ AVehicleBase::AVehicleBase()
 void AVehicleBase::RotateTurretFunction(FVector LookAtTarget)
 {
 	//turn towards actor
+	FVector LookAtTargetClean = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z);
+	FVector StartLocation = TurretMesh->GetComponentLocation();
+	FRotator TurretRotation = FVector(LookAtTargetClean - StartLocation).Rotation();
 }
 
 void AVehicleBase::Fire()
