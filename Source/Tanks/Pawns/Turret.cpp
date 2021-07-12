@@ -19,7 +19,7 @@ void ATurret::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
     if (!Player || ReturnDistanceToPlayer() > Range) { return; }
-    //RotateTurret(Player->GetActorLocation());
+    RotateTurret(Player->GetActorLocation());
 }
 
 void ATurret::CheckFireCondition()
@@ -30,8 +30,7 @@ void ATurret::CheckFireCondition()
     // fire when inrange
     if (ReturnDistanceToPlayer() < Range )
     {
-        UE_LOG(LogTemp, Warning, TEXT("Fire"));
-
+        Fire();
     }
 }
 

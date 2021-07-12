@@ -20,7 +20,7 @@ AVehicleBase::AVehicleBase()
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 
-void AVehicleBase::RotateTurretFunction(FVector LookAtTarget)
+void AVehicleBase::RotateTurret(FVector LookAtTarget)
 {
 	//turn towards actor
 	FVector LookAtTargetClean = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z);
@@ -31,6 +31,8 @@ void AVehicleBase::RotateTurretFunction(FVector LookAtTarget)
 void AVehicleBase::Fire()
 {
 	//instantiate bullet at projectile spawn point
+	UE_LOG(LogTemp, Warning, TEXT("Fire"));
+
 }
 
 void AVehicleBase::HandleDestruction()
