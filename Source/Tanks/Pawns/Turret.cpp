@@ -3,13 +3,15 @@
 
 #include "Tanks/Pawns/Turret.h"
 #include "Kismet/GameplayStatics.h"
-
+#include "Tank.h"
 
 void ATurret::BeginPlay()
 {
     Super::BeginPlay();
 
     GetWorld()->GetTimerManager().SetTimer(FireRateTimerHandle, this, &ATurret::CheckFireCondition, FireRate, true);
+
+    Player = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
 }
 
 // Called every frame
@@ -22,7 +24,20 @@ void ATurret::CheckFireCondition()
 {
     // dont fire when no player
 
+    if (!Player) { return; }
     // fire when inrange
+    if (ReturnDistanceToPlayer() < Range )
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Fire"));
 
-    UE_LOG(LogTemp, Warning, TEXT("Fire Condition Checked"));
+    }
+}
+
+float ATurret::ReturnDistanceToPlayer()
+{
+    if (!Player) 
+    { 
+        return 0.0f; 
+    }
+    return FVector::Distance(Player->GetActorLocation(), GetActorLocation());
 }
