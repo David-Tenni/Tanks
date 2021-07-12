@@ -20,4 +20,16 @@ AVehicleBase::AVehicleBase()
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 
+void AVehicleBase::RotateTurretFunction(FVector LookAtTarget)
+{
+}
+
+void AVehicleBase::Fire()
+{
+}
+
+void AVehicleBase::HandleDestruction()
+{
+}
+
 
