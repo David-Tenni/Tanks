@@ -14,6 +14,11 @@ void ATurret::BeginPlay()
     Player = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
 }
 
+void ATurret::HandleDestruction()
+{
+    Super::HandleDestruction();
+}
+
 // Called every frame
 void ATurret::Tick(float DeltaTime)
 {
