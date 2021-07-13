@@ -40,6 +40,8 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
     Super::BeginPlay();
+
+    PlayerControllerReference = Cast<APlayerController>(GetController());
 }
 
 void ATank::HandleDestruction()
@@ -53,6 +55,15 @@ void ATank::Tick(float DeltaTime)
     Super::Tick(DeltaTime);
     Rotate();
     Move();
+
+    if (PlayerControllerReference) 
+    {
+        FHitResult TraceHitResult;
+        PlayerControllerReference->GetHitResultUnderCursor(ECC_Visibility, false, TraceHitResult);
+        FVector HitLocation = TraceHitResult.ImpactPoint;
+
+        RotateTurret(HitLocation);
+    }
 }
 
 // Called to bind functionality to input
