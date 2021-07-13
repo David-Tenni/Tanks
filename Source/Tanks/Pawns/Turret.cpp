@@ -17,6 +17,7 @@ void ATurret::BeginPlay()
 void ATurret::HandleDestruction()
 {
     Super::HandleDestruction();
+    Destroy();
 }
 
 // Called every frame
