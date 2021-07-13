@@ -42,6 +42,11 @@ void ATank::BeginPlay()
     Super::BeginPlay();
 }
 
+void ATank::HandleDestruction()
+{
+    Super::HandleDestruction();
+}
+
 // Called every frame
 void ATank::Tick(float DeltaTime)
 {
@@ -56,4 +61,5 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     Super::SetupPlayerInputComponent(PlayerInputComponent);
     PlayerInputComponent->BindAxis("MoveForward", this, &ATank::CalculateMoveInput);
     PlayerInputComponent->BindAxis("Turn", this, &ATank::CalculateRotateInput);
+    PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ATank::Fire);
 }
