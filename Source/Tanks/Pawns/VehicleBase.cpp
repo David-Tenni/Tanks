@@ -45,3 +45,9 @@ void AVehicleBase::HandleDestruction()
 }
 
 
+void AVehicleBase::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	BaseMesh->SetRelativeLocation(FVector(0.f, 0.f, -70.f));
+}
