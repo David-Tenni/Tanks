@@ -1,5 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
+#include "Tanks/Actors/ProjectileBase.h"
 #include "Tanks/Pawns/VehicleBase.h"
+
 
 
 // Sets default values
@@ -32,8 +34,14 @@ void AVehicleBase::RotateTurret(FVector LookAtTarget)
 void AVehicleBase::Fire()
 {
 	//instantiate bullet at projectile spawn point
-	UE_LOG(LogTemp, Warning, TEXT("Fire"));
+	if(ProjectileClass)
+	{
+		FRotator TempRotation = ProjectileSpawnPoint->GetComponentRotation();
+		FVector TempLocation = ProjectileSpawnPoint->GetComponentLocation();
+		AProjectileBase* TempProjectile = GetWorld()->SpawnActor<AProjectileBase>(ProjectileClass, TempLocation, TempRotation);
 
+		TempProjectile->SetOwner(this);
+	}
 }
 
 void AVehicleBase::HandleDestruction()
