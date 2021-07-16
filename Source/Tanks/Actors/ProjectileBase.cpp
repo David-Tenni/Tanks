@@ -7,7 +7,7 @@
 AProjectileBase::AProjectileBase()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 }
 
@@ -16,12 +16,5 @@ void AProjectileBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
-}
-
-// Called every frame
-void AProjectileBase::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
