@@ -8,7 +8,12 @@
 void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
 	AActor* MyOwner = GetOwner();
-	if (MyOwner)
+	if (!MyOwner)
+	{
+		return;
+	}
+
+	if (OtherActor && OtherActor != this&& OtherActor != MyOwner)
 	{
 
 	}
