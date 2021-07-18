@@ -14,4 +14,22 @@ class TANKS_API ATanksGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+private:
+
+	void HandleGameStart();
+	void HandleGameOver();
+
+public:
+
+	void ActorDied(AActor* DeadActor);
+
+protected:
+
+	virtual void BeginPlay() override;
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameStart();
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool Victory);
 };

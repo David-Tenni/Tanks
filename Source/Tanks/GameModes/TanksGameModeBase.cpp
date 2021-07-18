@@ -3,3 +3,20 @@
 
 #include "TanksGameModeBase.h"
 
+void ATanksGameModeBase::BeginPlay()
+{
+}
+
+void ATanksGameModeBase::HandleGameStart()
+{
+}
+
+void ATanksGameModeBase::HandleGameOver()
+{
+}
+
+void ATanksGameModeBase::ActorDied(AActor* DeadActor)
+{
+}
+
+
