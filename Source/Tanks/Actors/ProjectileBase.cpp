@@ -4,6 +4,7 @@
 #include "ProjectileBase.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
@@ -15,8 +16,9 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
 
 	if (OtherActor && OtherActor != this&& OtherActor != MyOwner)
 	{
-
+		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwner->GetInstigatorController() , this, DamageType);
 	}
+	Destroy();
 }
 
 // Sets default values
