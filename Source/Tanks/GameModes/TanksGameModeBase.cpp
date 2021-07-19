@@ -12,6 +12,8 @@ void ATanksGameModeBase::BeginPlay()
 
 void ATanksGameModeBase::ActorDied(AActor* DeadActor)
 {
+	UE_LOG(LogTemp, Warning, TEXT("A Pawn is dead"));
+
 	//turret death add to score player death call game over
 }
 

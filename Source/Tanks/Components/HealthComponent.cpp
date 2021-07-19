@@ -2,6 +2,8 @@
 
 
 #include "HealthComponent.h"
+#include "Tanks/GameModes/TanksGameModeBase.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AHealthComponent::AHealthComponent()
@@ -15,11 +17,29 @@ AHealthComponent::AHealthComponent()
 void AHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	Health = DefaultHealth;
+	GameModeReference = Cast<ATanksGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	GetOwner()->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::TakeDamage);
 }
 
 void AHealthComponent::TakeDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
 {
+	if (Damage == 0) { return; }
+
+	Health = FMath::Clamp(Health - Damage, 0.f, DefaultHealth);
+
+	if(Health <= 0)
+	{
+		if (GameModeReference)
+		{
+			GameModeReference->ActorDied(GetOwner());
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("No Game Mode Set"));
+		}
+	}
 }
 
 
