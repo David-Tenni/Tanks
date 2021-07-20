@@ -27,6 +27,7 @@ void AHealthComponent::TakeDamage(AActor* DamagedActor, float Damage, const UDam
 {
 	if (Damage == 0) { return; }
 
+
 	Health = FMath::Clamp(Health - Damage, 0.f, DefaultHealth);
 
 	if(Health <= 0)
