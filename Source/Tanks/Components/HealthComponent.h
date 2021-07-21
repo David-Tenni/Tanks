@@ -17,7 +17,7 @@ private:
 		float DefaultHealth = 100.0f;
 	float Health = 0.0f;
 
-	ATanksGameModeBase* GameModeRef;
+	ATanksGameModeBase* GameModeReference;
 
 public:
 	// Sets default values for this component's properties

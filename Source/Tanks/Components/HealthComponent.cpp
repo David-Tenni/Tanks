@@ -19,7 +19,7 @@ void UHealthComponent::BeginPlay()
 	Super::BeginPlay();
 
 	Health = DefaultHealth;
-	GameModeRef = Cast<ATanksGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	GameModeReference = Cast<ATanksGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	GetOwner()->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::TakeDamage);
 
 }
@@ -35,9 +35,9 @@ void UHealthComponent::TakeDamage(AActor* DamageActor, float Damage, const UDama
 
 	if (Health <= 0)
 	{
-		if (GameModeRef)
+		if (GameModeReference)
 		{
-			GameModeRef->ActorDied(GetOwner());
+			GameModeReference->ActorDied(GetOwner());
 		}
 		else
 		{
