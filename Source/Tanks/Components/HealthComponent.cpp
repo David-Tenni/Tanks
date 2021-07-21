@@ -20,7 +20,7 @@ void AHealthComponent::BeginPlay()
 
 	Health = DefaultHealth;
 	GameModeReference = Cast<ATanksGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	GetOwner()->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::TakeDamage);
+	GetOwner()->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::TakeDamage); //check AddDynamic for errors
 }
 
 void AHealthComponent::TakeDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
