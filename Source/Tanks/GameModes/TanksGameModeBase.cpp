@@ -10,13 +10,11 @@ void ATanksGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
 	//get referennces
-	TArray<AActor*> TurretActors;
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATurret::StaticClass(), TurretActors);
 	
-	TargetTurrets = TurretActors.Num();
-	Player = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
-	//callstart game
+
+	HandleGameStart();
 }
+
 
 
 void ATanksGameModeBase::ActorDied(AActor* DeadActor)
@@ -39,6 +37,11 @@ void ATanksGameModeBase::ActorDied(AActor* DeadActor)
 
 void ATanksGameModeBase::HandleGameStart()
 {
+	TArray<AActor*> TurretActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATurret::StaticClass(), TurretActors);
+
+	TargetTurrets = TurretActors.Num();
+	Player = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
 	GameStart();
 }
 
