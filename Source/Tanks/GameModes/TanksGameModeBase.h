@@ -22,7 +22,7 @@ private:
 	int32 TargetTurrets = 0;
 
 	void HandleGameStart();
-	void HandleGameOver();
+	void HandleGameOver(bool Victory);
 
 
 public:

@@ -23,7 +23,16 @@ void ATanksGameModeBase::ActorDied(AActor* DeadActor)
 {
 	if(DeadActor == Player)
 	{
-		//Player->D
+		Player->HandleDestruction();
+		HandleGameOver(false);
+	}
+	else if (ATurret* DestroyedTurret = Cast<ATurret>(DeadActor))
+	{
+		DestroyedTurret->HandleDestruction();
+		if (--TargetTurrets == 0)
+		{
+			HandleGameOver(true);
+		}
 	}
 	//turret death add to score player death call game over
 }
@@ -34,7 +43,7 @@ void ATanksGameModeBase::HandleGameStart()
 	//caal gamestart in bp
 }
 
-void ATanksGameModeBase::HandleGameOver()
+void ATanksGameModeBase::HandleGameOver(bool Victory)
 {
 	//show win if all turrets ded
 	//if player dead show lose
