@@ -39,15 +39,12 @@ void ATanksGameModeBase::ActorDied(AActor* DeadActor)
 
 void ATanksGameModeBase::HandleGameStart()
 {
-	//initialise the countdown activate turrets check pawn
-	//caal gamestart in bp
+	GameStart();
 }
 
 void ATanksGameModeBase::HandleGameOver(bool Victory)
 {
-	//show win if all turrets ded
-	//if player dead show lose
-	//call bp gameover
+	GameOver(Victory);
 }
 
 
