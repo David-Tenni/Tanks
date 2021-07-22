@@ -4,7 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Tanks/Pawns/Tank.h"
+#include "Tanks/Pawns/Turret.h"
 #include "TanksGameModeBase.generated.h"
+
 
 /**
  * 
@@ -15,9 +18,12 @@ class TANKS_API ATanksGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 	
 private:
+	ATank* Player;
+	int32 TargetTurrets = 0;
 
 	void HandleGameStart();
 	void HandleGameOver();
+
 
 public:
 
