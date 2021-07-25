@@ -30,9 +30,8 @@ void ATurret::Tick(float DeltaTime)
 
 void ATurret::CheckFireCondition()
 {
-    // dont fire when no player
 
-    if (!Player) { return; }
+    if (!Player || Player->GetIsPlayerAlive() == false) { return; }
     // fire when inrange
     if (ReturnDistanceToPlayer() < Range )
     {

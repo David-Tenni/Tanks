@@ -47,6 +47,15 @@ void ATank::BeginPlay()
 void ATank::HandleDestruction()
 {
     Super::HandleDestruction();
+    IsPlayerAlive = false;
+
+    SetActorHiddenInGame(true);
+    SetActorTickEnabled(false);
+}
+
+bool ATank::GetIsPlayerAlive()
+{
+    return IsPlayerAlive;
 }
 
 // Called every frame
