@@ -47,7 +47,6 @@ void ATank::BeginPlay()
 void ATank::HandleDestruction()
 {
     Super::HandleDestruction();
-    Destroy();
 }
 
 // Called every frame

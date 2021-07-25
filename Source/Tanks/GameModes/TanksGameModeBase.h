@@ -6,8 +6,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "Tanks/Pawns/Tank.h"
 #include "Tanks/Pawns/Turret.h"
+#include "Tanks/Controllers/PlayerControllerBase.h"
 #include "TanksGameModeBase.generated.h"
-
 
 /**
  * 
@@ -19,7 +19,7 @@ class TANKS_API ATanksGameModeBase : public AGameModeBase
 	
 private:
 
-	
+	APlayerControllerBase* PlayerControllerReference;
 	ATank* Player;
 	int32 TargetTurrets = 0;
 
@@ -33,7 +33,7 @@ public:
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Loop")
-	int32 StartDelay = 9;
+	int32 StartDelay = 4;
 
 	virtual void BeginPlay() override;
 	
