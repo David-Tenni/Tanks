@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "Tanks/Pawns/VehicleBase.h"
-
+#include "Kismet/GameplayStatics.h"
 #include "Tanks/Actors/ProjectileBase.h"
 
 
@@ -20,6 +20,9 @@ AVehicleBase::AVehicleBase()
 	
 	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
+
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health Component"));
+
 }
 
 void AVehicleBase::RotateTurret(FVector LookAtTarget)
@@ -46,8 +49,7 @@ void AVehicleBase::Fire()
 
 void AVehicleBase::HandleDestruction()
 {
-	//spawn particles, play sound, shake camera
-	//destroy self
+	UGameplayStatics::SpawnEmitterAtLocation(this, DeathParticle, GetActorLocation());
 	//pawn turret spawn debris maybe
 	//set player to dead, kill functionality, make invicible, move to spawn point, and respawn if lives > 0
 }
