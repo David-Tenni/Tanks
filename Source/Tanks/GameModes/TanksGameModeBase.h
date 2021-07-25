@@ -18,6 +18,8 @@ class TANKS_API ATanksGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 	
 private:
+
+	
 	ATank* Player;
 	int32 TargetTurrets = 0;
 
@@ -30,6 +32,8 @@ public:
 	void ActorDied(AActor* DeadActor);
 
 protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Loop")
+	int32 StartDelay = 9;
 
 	virtual void BeginPlay() override;
 	
