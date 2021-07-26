@@ -30,6 +30,9 @@ private:
 	float Damage = 50;
 	
 	UPROPERTY(EditAnywhere, Category = "Effects")
+	UParticleSystemComponent* TrailParticle;	
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
 	UParticleSystem* HitParticle;
 
 	UFUNCTION()

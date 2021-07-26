@@ -5,6 +5,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Particles/particleSystemComponent.h"
 //Maybe change emmisive material depending on owner
 void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
@@ -28,7 +29,7 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
 AProjectileBase::AProjectileBase()
 {
 	PrimaryActorTick.bCanEverTick = false;
-
+	//TrailParticle
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectile Mesh"));
 	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectileBase::OnHit);
 	RootComponent = ProjectileMesh;
@@ -36,7 +37,11 @@ AProjectileBase::AProjectileBase()
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement"));
 	ProjectileMovement->InitialSpeed = MovementSpeed;
 	ProjectileMovement->MaxSpeed = MovementSpeed;
-	InitialLifeSpan = 3.0f;
+	InitialLifeSpan = 6.0f;
+
+	TrailParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Particle Trail"));
+	TrailParticle->SetupAttachment(RootComponent);
+
 }
 
 
