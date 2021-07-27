@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+//#include "Camera/CameraShake.h"
 #include "ProjectileBase.generated.h"
 
 class UProjectileMovementComponent;
@@ -23,6 +24,9 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 	TSubclassOf<UDamageType> DamageType;
 	
+	//UPROPERTY(EditDefaultsOnly, Category = "Effects")
+	//TSubclassOf<UMatineeCameraShake> CameraShake;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Move", meta = (AllowPrivateAccess = "true"))
 	float MovementSpeed = 1300;
 	
