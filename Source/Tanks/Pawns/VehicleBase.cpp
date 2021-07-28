@@ -51,8 +51,6 @@ void AVehicleBase::HandleDestruction()
 {
 	UGameplayStatics::SpawnEmitterAtLocation(this, DeathParticle, GetActorLocation());
 	UGameplayStatics::SpawnSoundAtLocation(this, DeathSound, GetActorLocation());
-	//pawn turret spawn debris maybe
-	//set player to dead, kill functionality, make invicible, move to spawn point, and respawn if lives > 0
 }
 
 
