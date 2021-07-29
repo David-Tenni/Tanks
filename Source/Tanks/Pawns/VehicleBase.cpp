@@ -36,7 +36,6 @@ void AVehicleBase::RotateTurret(FVector LookAtTarget)
 
 void AVehicleBase::Fire()
 {
-	//instantiate bullet at projectile spawn point
 	if(ProjectileClass)
 	{
 		FRotator TempRotation = ProjectileSpawnPoint->GetComponentRotation();
