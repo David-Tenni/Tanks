@@ -9,7 +9,7 @@
 AVehicleBase::AVehicleBase()
 {
 	PrimaryActorTick.bCanEverTick = true;
-
+	//consider additing addition turret components
 	CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
 
 	BaseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
