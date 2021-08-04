@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Pawns/VehicleBase.h"
+#include "VehicleBase.h"
 #include "Tank.h"
 #include "BattleShip.generated.h"
 
